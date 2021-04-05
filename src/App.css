@@ -36,3 +36,34 @@
     transform: rotate(360deg);
   }
 }
+
+.row {
+  margin-right: 0px !important;
+  margin-left: 0px !important;
+}
+
+.side-menu {
+  background-color: blue;
+  height: 100vh;
+  border-radius: 20px 0px 0px 20px;
+  text-align: center;
+}
+
+.payment-container {
+  background-color: antiquewhite;
+  height: 100vh;
+  border-radius: 0px 20px 20px 0px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}

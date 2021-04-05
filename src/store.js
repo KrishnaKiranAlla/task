@@ -4,7 +4,6 @@ import rootReducer from "./reducers/rootReducer";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { routerMiddleware } from "connected-react-router";
 import { createHashHistory } from "history";
-
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
 
@@ -19,9 +18,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export default function configStore(
-  initialState = { demo: null, user: null, error: [] }
-) {
+export default function configStore(initialState = { demo: null, user: null }) {
   const middleware = composeEnhancers(
     applyMiddleware(thunk, routerMiddleware(history))
   );

@@ -11,6 +11,13 @@ class Login extends Component {
     password: "",
   };
 
+  componentDidMount() {
+    const { user } = this.props;
+    if (user) {
+      this.props.history.push("/dashboard");
+    }
+  }
+
   handleTextFields(key, value) {
     this.setState({
       [key]: value,

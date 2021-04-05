@@ -1,11 +1,22 @@
-import { ADD_PAYMENTS, DELETE_PAYMENTS } from "../actions/types";
+import { ADD_PAYMENTS } from "../actions/types";
 
-export default (state = {}, action) => {
+// eslint-disable-next-line import/no-anonymous-default-export
+export default (state = [], action) => {
   switch (action.type) {
     case ADD_PAYMENTS:
-      return action.payload;
-    case DELETE_PAYMENTS:
-      return null;
+      let index;
+      const result = state.filter((test, i) => {
+        if (test?.id === action.payload?.id) {
+          index = i;
+          return test;
+        }
+      });
+      if (result?.length > 0) {
+        state[index] = action.payload;
+        return state;
+      } else {
+        return [...state, action.payload];
+      }
     default:
       return state;
   }
