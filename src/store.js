@@ -13,7 +13,7 @@ const history = createHashHistory();
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["user"],
+  whitelist: ["user", "payments"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
