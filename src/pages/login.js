@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Row, Col } from "react-flexbox-grid";
 import { Label, Input, Button, Box } from "theme-ui";
+import { connect } from "react-redux";
+import { loginUser } from "../actions/user";
 import { users } from "../util";
 
 class Login extends Component {
@@ -21,6 +23,7 @@ class Login extends Component {
       return user.username === userName && user.password === password;
     });
     if (user.length) {
+      await this.props.loginUser(user[0]);
       this.props.history.push("/dashboard");
     } else {
       alert("Please login with correct credentials");
@@ -64,4 +67,11 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect(
+  (state) => ({
+    user: state.user,
+  }),
+  {
+    loginUser,
+  }
+)(Login);
